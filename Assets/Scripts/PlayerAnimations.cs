@@ -6,10 +6,12 @@ public class PlayerAnimations : MonoBehaviour
 {
     Animator anim;
     PlayerController playerController;
+    PlayerCombat playerCombat;
     private void Awake()
     {
         anim = GetComponent<Animator>();
         playerController = GetComponent<PlayerController>();
+        playerCombat = GetComponent<PlayerCombat>();
     }
     private void Update()
     {
@@ -18,5 +20,6 @@ public class PlayerAnimations : MonoBehaviour
     void UpdateAnimationState()
     {
         anim.SetBool("IsRun",playerController.IsRun);
+        anim.SetBool("IsAttack", playerCombat.IsAttack);
     }
 }
