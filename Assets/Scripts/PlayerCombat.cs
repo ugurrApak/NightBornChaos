@@ -34,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
 		List<Collider2D> hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer).ToList();
 		foreach  (Collider2D enemy in hitEnemies)
 		{
-			IHitable hitable = enemy.GetComponent<Health>();
+			IHitable hitable = enemy.GetComponentInParent<Health>();
 			if(hitable != null)
 			{
 				hitable.GetHit(damageValue, gameObject);
