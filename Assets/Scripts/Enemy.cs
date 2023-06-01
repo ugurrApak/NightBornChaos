@@ -5,6 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     Health health;
+    Animator anim;
+    private void Awake()
+    {
+        anim= GetComponent<Animator>();
+    }
     private void OnEnable()
     {
         if (health == null)
@@ -20,6 +25,10 @@ public class Enemy : MonoBehaviour
     }
     void Death()
     {
-        Destroy(gameObject,.5f);
+        anim.SetBool("IsDead", true);
+    }
+    public void Dead()
+    {
+        Destroy(gameObject);
     }
 }

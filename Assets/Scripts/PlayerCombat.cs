@@ -28,9 +28,8 @@ public class PlayerCombat : MonoBehaviour
 			StartCoroutine(AttackAfterDelay());
 		}
     }
-	void Attack()
+	public void Attack()
 	{
-		isAttack = true;
 		List<Collider2D> hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer).ToList();
 		foreach  (Collider2D enemy in hitEnemies)
 		{
@@ -43,7 +42,7 @@ public class PlayerCombat : MonoBehaviour
 	}
 	IEnumerator AttackAfterDelay()
 	{
-		Attack();
+		IsAttack = true;
 		yield return new WaitForSeconds(1f);
 		isAttack = false;
 	}

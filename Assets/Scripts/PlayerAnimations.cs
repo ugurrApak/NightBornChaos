@@ -21,5 +21,6 @@ public class PlayerAnimations : MonoBehaviour
     {
         anim.SetBool("IsRun",playerController.IsRun);
         anim.SetBool("IsAttack", playerCombat.IsAttack);
+        anim.SetBool("IsDead", playerController.IsDead);
     }
 }
